@@ -1,0 +1,8 @@
+
+*.xcbkptlist
+
+*.xcuserstate
+
+DYSwizzling.xcodeproj/xcuserdata/apple.xcuserdatad/xcschemes/xcschememanagement.plist
+
+*.xcscheme

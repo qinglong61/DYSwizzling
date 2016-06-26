@@ -7,8 +7,19 @@
 //
 
 #import "ViewController.h"
+#import "DYSwizzling.h"
 
-@interface ViewController ()
+@interface ViewController (DYSwizzling)
+
+@end
+
+@implementation ViewController (DYSwizzling)
+
+- (void)DYSwizzling_loadView
+{
+    [self DYSwizzling_loadView];
+    NSLog(@"did invoke loadView");
+}
 
 @end
 

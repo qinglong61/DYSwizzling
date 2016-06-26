@@ -13,6 +13,7 @@
 		D8FABE071D1D3D8D003E57EC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8FABE051D1D3D8D003E57EC /* Main.storyboard */; };
 		D8FABE091D1D3D8D003E57EC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D8FABE081D1D3D8D003E57EC /* Assets.xcassets */; };
 		D8FABE0C1D1D3D8D003E57EC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8FABE0A1D1D3D8D003E57EC /* LaunchScreen.storyboard */; };
+		D8FABE151D1D3F2A003E57EC /* DYSwizzling.m in Sources */ = {isa = PBXBuildFile; fileRef = D8FABE141D1D3F2A003E57EC /* DYSwizzling.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,8 @@
 		D8FABE081D1D3D8D003E57EC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D8FABE0B1D1D3D8D003E57EC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D8FABE0D1D1D3D8D003E57EC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D8FABE131D1D3F2A003E57EC /* DYSwizzling.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DYSwizzling.h; sourceTree = "<group>"; };
+		D8FABE141D1D3F2A003E57EC /* DYSwizzling.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DYSwizzling.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +65,8 @@
 				D8FABE001D1D3D8D003E57EC /* AppDelegate.m */,
 				D8FABE021D1D3D8D003E57EC /* ViewController.h */,
 				D8FABE031D1D3D8D003E57EC /* ViewController.m */,
+				D8FABE131D1D3F2A003E57EC /* DYSwizzling.h */,
+				D8FABE141D1D3F2A003E57EC /* DYSwizzling.m */,
 				D8FABE051D1D3D8D003E57EC /* Main.storyboard */,
 				D8FABE081D1D3D8D003E57EC /* Assets.xcassets */,
 				D8FABE0A1D1D3D8D003E57EC /* LaunchScreen.storyboard */,
@@ -152,6 +157,7 @@
 			files = (
 				D8FABE041D1D3D8D003E57EC /* ViewController.m in Sources */,
 				D8FABE011D1D3D8D003E57EC /* AppDelegate.m in Sources */,
+				D8FABE151D1D3F2A003E57EC /* DYSwizzling.m in Sources */,
 				D8FABDFE1D1D3D8D003E57EC /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
