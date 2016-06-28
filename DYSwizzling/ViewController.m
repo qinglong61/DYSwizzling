@@ -17,8 +17,11 @@
 
 - (void)DYSwizzling_loadView
 {
-    [self DYSwizzling_loadView];
-    NSLog(@"did invoke loadView");
+    NSLog(@"%@ will loadView", NSStringFromClass(self.class));
+    
+    [self DYSwizzling_performSelector:@selector(loadView)];
+    
+    NSLog(@"%@ did loadView", NSStringFromClass(self.class));
 }
 
 @end

@@ -10,4 +10,6 @@
 
 @interface  NSObject (DYSwizzling)
 
+- (void)DYSwizzling_performSelector:(SEL)selector;
+
 @end
