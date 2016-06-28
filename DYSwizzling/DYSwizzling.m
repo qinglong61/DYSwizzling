@@ -13,6 +13,11 @@
 
 + (void)load
 {
+    [[self class] P_DYSwizzling_init];
+}
+
++ (void)P_DYSwizzling_init
+{
     [[self class] P_DYSwizzling_swizzling];
     
     static int onceToken = 1;
@@ -20,7 +25,7 @@
         onceToken = 0;
         NSArray *subclasses = P_DYSwizzling_getSubclasses([self class]);
         for (Class subclass in subclasses) {
-            [subclass load];
+            [subclass P_DYSwizzling_init];
         }
     }
 }
