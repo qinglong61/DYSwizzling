@@ -13,21 +13,21 @@
 
 + (void)load
 {
-    [[self class] swizzling];
+    [[self class] P_DYSwizzling_swizzling];
     
     static int onceToken = 1;
     if (onceToken) {
         onceToken = 0;
-        NSArray *subclasses = getSubclasses([self class]);
+        NSArray *subclasses = P_DYSwizzling_getSubclasses([self class]);
         for (Class subclass in subclasses) {
             [subclass load];
         }
     }
 }
 
-+ (Method)getOldMethod:(Method)newMethod
++ (Method)P_DYSwizzling_getOldMethod:(Method)newMethod
 {
-    if (isSwizzlingMethod(newMethod)) {
+    if (P_DYSwizzling_isSwizzlingMethod(newMethod)) {
         SEL oldSelector = NSSelectorFromString( [NSStringFromSelector(method_getName(newMethod)) substringFromIndex:[@"DYSwizzling_" length]] );
         Method oldMethod = class_getInstanceMethod([self class], oldSelector);
         if (NULL == oldMethod) {
@@ -38,9 +38,9 @@
     return NULL;
 }
 
-+ (void)exchangeImplementationsIfNeed:(Method)method
++ (void)P_DYSwizzling_exchangeImplementationsIfNeed:(Method)method
 {
-    Method oldMethod = [[self class] getOldMethod:method];
+    Method oldMethod = [[self class] P_DYSwizzling_getOldMethod:method];
     if (oldMethod) {
         static int onceToken = 1;
         static IMP new_imp;
@@ -50,37 +50,37 @@
         }
         
         IMP old_imp = method_getImplementation(oldMethod);
-        SEL tmpSelector = getTmpSelector(method_getName(oldMethod));
+        SEL tmpSelector = P_DYSwizzling_getTmpSelector(method_getName(oldMethod));
         class_addMethod([self class], tmpSelector, old_imp, NULL);
         method_setImplementation(oldMethod, new_imp);
         
-        NSArray *subclasses = getSubclasses([self class]);
+        NSArray *subclasses = P_DYSwizzling_getSubclasses([self class]);
         for (Class subclass in subclasses) {
-            [subclass exchangeImplementationsIfNeed:method];
+            [subclass P_DYSwizzling_exchangeImplementationsIfNeed:method];
         }
     }
 }
 
-+ (void)swizzling
++ (void)P_DYSwizzling_swizzling
 {
     unsigned int outCount;
     Method *class_methodList = class_copyMethodList(object_getClass([self class]), &outCount);
     for (unsigned int i = 0; i < outCount; i++) {
-        [[self class] exchangeImplementationsIfNeed:class_methodList[i]];
+        [[self class] P_DYSwizzling_exchangeImplementationsIfNeed:class_methodList[i]];
     }
     
     Method *instance_methodList = class_copyMethodList([self class], &outCount);
     for (unsigned int i = 0; i < outCount; i++) {
-        [[self class] exchangeImplementationsIfNeed:instance_methodList[i]];
+        [[self class] P_DYSwizzling_exchangeImplementationsIfNeed:instance_methodList[i]];
     }
 }
 
 - (void)DYSwizzling_performSelector:(SEL)selector
 {
-    [self performSelector:getTmpSelector(selector)];
+    [self performSelector:P_DYSwizzling_getTmpSelector(selector)];
 }
 
-NSArray *getSubclasses(Class parentClass)
+NSArray *P_DYSwizzling_getSubclasses(Class parentClass)
 {
     int numClasses = objc_getClassList(NULL, 0);
     Class *classes = NULL;
@@ -104,7 +104,7 @@ NSArray *getSubclasses(Class parentClass)
     return result;
 }
 
-BOOL isSwizzlingMethod(Method method)
+BOOL P_DYSwizzling_isSwizzlingMethod(Method method)
 {
     if ([NSStringFromSelector(method_getName(method)) isEqualToString:@"DYSwizzling_performSelector:"]) {
         return NO;
@@ -115,7 +115,7 @@ BOOL isSwizzlingMethod(Method method)
     return NO;
 }
 
-SEL getTmpSelector(SEL selector)
+SEL P_DYSwizzling_getTmpSelector(SEL selector)
 {
     return NSSelectorFromString([@"DYSwizzling_original_" stringByAppendingString:NSStringFromSelector(selector)]);
 }
