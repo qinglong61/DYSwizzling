@@ -7,30 +7,22 @@
 //
 
 #import "ViewController.h"
-#import "DYSwizzling.h"
-
-@interface ViewController (DYSwizzling)
-
-@end
-
-@implementation ViewController (DYSwizzling)
-
-- (void)DYSwizzling_loadView
-{
-    NSLog(@"%@ will loadView", NSStringFromClass(self.class));
-    
-    [self DYSwizzling_performSelector:@selector(loadView)];
-    
-    NSLog(@"%@ did loadView", NSStringFromClass(self.class));
-}
-
-@end
+#import "SubXXX.h"
+#import "SuperXXX.h"
 
 @implementation ViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    
+    SubXXX *xxx = [[SubXXX alloc] init];
+    [xxx test];
+    
+    SubXXX1 *xxx1 = [[SubXXX1 alloc] init];
+    [xxx1 test];
+    
+    SuperXXX *xxxS = [[SuperXXX alloc] init];
+    [xxxS test];
 }
 
 - (void)didReceiveMemoryWarning {

@@ -14,6 +14,8 @@
 		D8FABE091D1D3D8D003E57EC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D8FABE081D1D3D8D003E57EC /* Assets.xcassets */; };
 		D8FABE0C1D1D3D8D003E57EC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8FABE0A1D1D3D8D003E57EC /* LaunchScreen.storyboard */; };
 		D8FABE151D1D3F2A003E57EC /* DYSwizzling.m in Sources */ = {isa = PBXBuildFile; fileRef = D8FABE141D1D3F2A003E57EC /* DYSwizzling.m */; };
+		D8FABE261D2368CF003E57EC /* SubXXX.m in Sources */ = {isa = PBXBuildFile; fileRef = D8FABE231D2368CF003E57EC /* SubXXX.m */; };
+		D8FABE271D2368CF003E57EC /* SuperXXX.m in Sources */ = {isa = PBXBuildFile; fileRef = D8FABE251D2368CF003E57EC /* SuperXXX.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,8 +29,12 @@
 		D8FABE081D1D3D8D003E57EC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D8FABE0B1D1D3D8D003E57EC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D8FABE0D1D1D3D8D003E57EC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D8FABE131D1D3F2A003E57EC /* DYSwizzling.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DYSwizzling.h; sourceTree = "<group>"; };
-		D8FABE141D1D3F2A003E57EC /* DYSwizzling.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DYSwizzling.m; sourceTree = "<group>"; };
+		D8FABE131D1D3F2A003E57EC /* DYSwizzling.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DYSwizzling.h; path = DYSwizzling/DYSwizzling.h; sourceTree = "<group>"; };
+		D8FABE141D1D3F2A003E57EC /* DYSwizzling.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DYSwizzling.m; path = DYSwizzling/DYSwizzling.m; sourceTree = "<group>"; };
+		D8FABE221D2368CF003E57EC /* SubXXX.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubXXX.h; sourceTree = "<group>"; };
+		D8FABE231D2368CF003E57EC /* SubXXX.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubXXX.m; sourceTree = "<group>"; };
+		D8FABE241D2368CF003E57EC /* SuperXXX.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SuperXXX.h; sourceTree = "<group>"; };
+		D8FABE251D2368CF003E57EC /* SuperXXX.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SuperXXX.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +51,8 @@
 		D8FABDF01D1D3D8C003E57EC = {
 			isa = PBXGroup;
 			children = (
+				D8FABE131D1D3F2A003E57EC /* DYSwizzling.h */,
+				D8FABE141D1D3F2A003E57EC /* DYSwizzling.m */,
 				D8FABDFB1D1D3D8D003E57EC /* DYSwizzling */,
 				D8FABDFA1D1D3D8C003E57EC /* Products */,
 			);
@@ -65,8 +73,7 @@
 				D8FABE001D1D3D8D003E57EC /* AppDelegate.m */,
 				D8FABE021D1D3D8D003E57EC /* ViewController.h */,
 				D8FABE031D1D3D8D003E57EC /* ViewController.m */,
-				D8FABE131D1D3F2A003E57EC /* DYSwizzling.h */,
-				D8FABE141D1D3F2A003E57EC /* DYSwizzling.m */,
+				D8FABE281D2368E3003E57EC /* Class */,
 				D8FABE051D1D3D8D003E57EC /* Main.storyboard */,
 				D8FABE081D1D3D8D003E57EC /* Assets.xcassets */,
 				D8FABE0A1D1D3D8D003E57EC /* LaunchScreen.storyboard */,
@@ -82,6 +89,17 @@
 				D8FABDFD1D1D3D8D003E57EC /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D8FABE281D2368E3003E57EC /* Class */ = {
+			isa = PBXGroup;
+			children = (
+				D8FABE221D2368CF003E57EC /* SubXXX.h */,
+				D8FABE231D2368CF003E57EC /* SubXXX.m */,
+				D8FABE241D2368CF003E57EC /* SuperXXX.h */,
+				D8FABE251D2368CF003E57EC /* SuperXXX.m */,
+			);
+			name = Class;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -157,7 +175,9 @@
 			files = (
 				D8FABE041D1D3D8D003E57EC /* ViewController.m in Sources */,
 				D8FABE011D1D3D8D003E57EC /* AppDelegate.m in Sources */,
+				D8FABE271D2368CF003E57EC /* SuperXXX.m in Sources */,
 				D8FABE151D1D3F2A003E57EC /* DYSwizzling.m in Sources */,
+				D8FABE261D2368CF003E57EC /* SubXXX.m in Sources */,
 				D8FABDFE1D1D3D8D003E57EC /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -309,6 +329,7 @@
 				D8FABE121D1D3D8D003E57EC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
